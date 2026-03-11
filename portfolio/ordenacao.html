@@ -60,804 +60,14 @@
 </section>
 
 <!-- ── GALERIA ────────────────────────────────────────── -->
+<!--
+  CLOUDINARY — pré-requisito:
+  Para que o endpoint /image/list funcione, todos os assets desta galeria
+  precisam ter a tag "portfolio:ordenacao" aplicada no Cloudinary Console:
+  Media Library → selecionar todas as fotos → Add tag → portfolio:ordenacao
+-->
 <main class="gallery-grid" id="gallery">
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-01.jpg"
-      alt="Imposição das mãos — Ordenação Presbiteral"
-      loading="eager"
-      fetchpriority="high"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Imposição das mãos"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Imposição das mãos</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item portrait">
-    <img
-      src="../assets/portfolio/ordenacao/foto-02.jpg"
-      alt="Unção das mãos — Ordenação Presbiteral"
-      loading="lazy"
-      width="800"
-      height="1200"
-      data-lightbox="ordenacao"
-      data-caption="Unção das mãos"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Unção das mãos</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-03.jpg"
-      alt="Prostração — Ladainha dos Santos"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Prostração — Ladainha dos Santos"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Prostração — Ladainha dos Santos</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-04.jpg"
-      alt="Revestição das vestes sacerdotais"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Revestição das vestes sacerdotais"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Revestição das vestes sacerdotais</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item portrait">
-    <img
-      src="../assets/portfolio/ordenacao/foto-05.jpg"
-      alt="Primeiro abraço presbiteral"
-      loading="lazy"
-      width="800"
-      height="1200"
-      data-lightbox="ordenacao"
-      data-caption="Primeiro abraço presbiteral"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Primeiro abraço presbiteral</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-06.jpg"
-      alt="Primeira bênção ao povo"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Primeira bênção ao povo"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Primeira bênção ao povo</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-07.jpg"
-      alt="Promessa de obediência ao bispo"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Promessa de obediência ao bispo"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Promessa de obediência ao bispo</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-08.jpg"
-      alt="Concelebração eucarística"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Concelebração eucarística"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Concelebração eucarística</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item portrait">
-    <img
-      src="../assets/portfolio/ordenacao/foto-09.jpg"
-      alt="Detalhe — estola e manipulo"
-      loading="lazy"
-      width="800"
-      height="1200"
-      data-lightbox="ordenacao"
-      data-caption="Detalhe — estola e manipulo"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Detalhe — estola e manipulo</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-10.jpg"
-      alt="Momento de oração silenciosa"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Momento de oração silenciosa"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Momento de oração silenciosa</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-11.jpg"
-      alt="Família presente na ordenação"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Família presente na ordenação"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Família presente na ordenação</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-12.jpg"
-      alt="Encerramento — processão de saída"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Encerramento — processão de saída"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Encerramento — processão de saída</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-13.jpg"
-      alt="Foto 13 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 13 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 13 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-14.jpg"
-      alt="Foto 14 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 14 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 14 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-15.jpg"
-      alt="Foto 15 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 15 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 15 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-16.jpg"
-      alt="Foto 16 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 16 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 16 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-17.jpg"
-      alt="Foto 17 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 17 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 17 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-18.jpg"
-      alt="Foto 18 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 18 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 18 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-19.jpg"
-      alt="Foto 19 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 19 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 19 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-20.jpg"
-      alt="Foto 20 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 20 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 20 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-21.jpg"
-      alt="Foto 21 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 21 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 21 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-22.jpg"
-      alt="Foto 22 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 22 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 22 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-23.jpg"
-      alt="Foto 23 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 23 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 23 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-24.jpg"
-      alt="Foto 24 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 24 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 24 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-25.jpg"
-      alt="Foto 25 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 25 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 25 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-26.jpg"
-      alt="Foto 26 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 26 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 26 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-27.jpg"
-      alt="Foto 27 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 27 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 27 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-28.jpg"
-      alt="Foto 28 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 28 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 28 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-29.jpg"
-      alt="Foto 29 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 29 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 29 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-30.jpg"
-      alt="Foto 30 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 30 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 30 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-31.jpg"
-      alt="Foto 31 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 31 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 31 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-32.jpg"
-      alt="Foto 32 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 32 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 32 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-33.jpg"
-      alt="Foto 33 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 33 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 33 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-34.jpg"
-      alt="Foto 34 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 34 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 34 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-35.jpg"
-      alt="Foto 35 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 35 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 35 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-36.jpg"
-      alt="Foto 36 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 36 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 36 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-37.jpg"
-      alt="Foto 37 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 37 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 37 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-38.jpg"
-      alt="Foto 38 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 38 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 38 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-39.jpg"
-      alt="Foto 39 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 39 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 39 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-40.jpg"
-      alt="Foto 40 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 40 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 40 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-41.jpg"
-      alt="Foto 41 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 41 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 41 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-42.jpg"
-      alt="Foto 42 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 42 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 42 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-43.jpg"
-      alt="Foto 43 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 43 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 43 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-44.jpg"
-      alt="Foto 44 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 44 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 44 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-45.jpg"
-      alt="Foto 45 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 45 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 45 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-46.jpg"
-      alt="Foto 46 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 46 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 46 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-47.jpg"
-      alt="Foto 47 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 47 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 47 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-48.jpg"
-      alt="Foto 48 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 48 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 48 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-49.jpg"
-      alt="Foto 49 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 49 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 49 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-50.jpg"
-      alt="Foto 50 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 50 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 50 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-51.jpg"
-      alt="Foto 51 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 51 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 51 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-52.jpg"
-      alt="Foto 52 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 52 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 52 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-53.jpg"
-      alt="Foto 53 — Ordenação Diaconal"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Foto 53 — Ordenação Diaconal"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Foto 53 — Ordenação Diaconal</span>
-    </div>
-  </figure>
-
+  <!-- Itens renderizados dinamicamente via JavaScript (Cloudinary List API) -->
 </main>
 
 <!-- ── FOOTER ─────────────────────────────────────────── -->
@@ -915,19 +125,96 @@ hbEl.addEventListener('click', () =>
 );
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
 
-/* ── SCROLL REVEAL ───────────────────────────────────── */
-const io = new IntersectionObserver(entries => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('on'), i * 60);
-      io.unobserve(e.target);
+/* ── CLOUDINARY GALLERY ──────────────────────────────── */
+const CLOUD  = 'dsxsmrego';
+const TAG    = 'portfolio:ordenacao';
+const LIST_URL = `https://res.cloudinary.com/${CLOUD}/image/list/${TAG}.json`;
+
+function buildImageUrl(publicId) {
+  return `https://res.cloudinary.com/${CLOUD}/image/upload/w_1200,q_auto,f_auto/${publicId}`;
+}
+
+function createFigure(resource, index) {
+  const { public_id, context } = resource;
+  // Usa o campo context.caption se existir, caso contrário deriva do public_id
+  const caption = (context && context.custom && context.custom.caption)
+    ? context.custom.caption
+    : public_id.split('/').pop().replace(/[-_]/g, ' ');
+
+  const fig = document.createElement('figure');
+  fig.className = 'gallery-item';
+
+  const img = document.createElement('img');
+  img.src               = buildImageUrl(public_id);
+  img.alt               = `${caption} — Ordenação Presbiteral`;
+  img.loading           = index === 0 ? 'eager' : 'lazy';
+  img.width             = 1200;
+  img.height            = 800;
+  img.dataset.lightbox  = 'ordenacao';
+  img.dataset.caption   = caption;
+  if (index === 0) img.setAttribute('fetchpriority', 'high');
+
+  const overlay = document.createElement('div');
+  overlay.className = 'gallery-item-overlay';
+
+  const span = document.createElement('span');
+  span.className   = 'gallery-item-caption';
+  span.textContent = caption;
+
+  overlay.appendChild(span);
+  fig.appendChild(img);
+  fig.appendChild(overlay);
+  return fig;
+}
+
+function initScrollReveal(items) {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('on'), i * 60);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.06 });
+  items.forEach(el => { el.classList.add('reveal'); io.observe(el); });
+}
+
+async function loadGallery() {
+  const grid = document.getElementById('gallery');
+
+  try {
+    const res  = await fetch(LIST_URL);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+
+    const resources = data.resources || [];
+    if (resources.length === 0) {
+      grid.innerHTML = '<p class="gallery-empty">Nenhuma imagem encontrada. Verifique a tag no Cloudinary.</p>';
+      return;
     }
-  });
-}, { threshold:0.06 });
-document.querySelectorAll('.gallery-item').forEach(el => {
-  el.classList.add('reveal');
-  io.observe(el);
-});
+
+    const fragment = document.createDocumentFragment();
+    const figures  = resources.map((r, i) => {
+      const fig = createFigure(r, i);
+      fragment.appendChild(fig);
+      return fig;
+    });
+
+    grid.appendChild(fragment);
+
+    // Re-inicializa lightbox (definido em lightbox.js) após inserir os itens
+    if (typeof initLightbox === 'function') initLightbox();
+
+    // Re-inicializa scroll reveal
+    initScrollReveal(figures);
+
+  } catch (err) {
+    console.error('Cloudinary gallery load failed:', err);
+    grid.innerHTML = `<p class="gallery-empty">Erro ao carregar galeria. Tente novamente mais tarde.</p>`;
+  }
+}
+
+loadGallery();
 </script>
 <script src="../js/lightbox.js"></script>
 </body>

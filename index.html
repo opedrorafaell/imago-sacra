@@ -1142,8 +1142,9 @@ const PF_SLIDES = [
     img.src = s.img;
     img.alt = s.title + ' ' + s.titleEm;
     img.loading = i === 0 ? 'eager' : 'lazy';
-    img.width = 1600;
-    img.height = 1067;
+    if (i === 0) img.fetchPriority = 'high';
+    img.width = 900;
+    img.height = 600;
     img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;';
     el.appendChild(img);
     bgWrap.appendChild(el);

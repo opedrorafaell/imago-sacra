@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Batizados &amp; Sacramentos — Imago Sacra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/gallery.css" />
+</head>
+<body>
+
+  <!-- ── FIXED UI ───────────────────────────────────── -->
+  <button class="hamburger" id="hb" aria-label="Abrir menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <div class="nav-bar scrolled" id="navBar">
+    <a class="nav-logo" href="../index.html">
+      Imago Sacra<small>Fotografia Litúrgica</small>
+    </a>
+  </div>
+
+  <a class="nav-cta" href="../index.html#contato">Solicitar Orçamento</a>
+
+  <button class="theme-btn" id="themeBtn">
+    <span class="icon-sun">☀️</span><span class="icon-moon">🌙</span>
+  </button>
+
+  <!-- DRAWER -->
+  <div class="overlay" id="overlay"></div>
+  <nav class="drawer" id="drawer" aria-label="Menu principal">
+    <div class="drawer-head">
+      <div class="drawer-brand">Imago Sacra<small>Fotografia Litúrgica</small></div>
+      <button class="drawer-x" onclick="closeDrawer()" aria-label="Fechar">✕</button>
+    </div>
+    <div class="drawer-links">
+      <a class="drawer-item" href="../index.html#portfolio" onclick="closeDrawer()">
+        Portfólio<span class="drawer-arrow">→</span>
+      </a>
+      <a class="drawer-item" href="../index.html#sobre" onclick="closeDrawer()">
+        Sobre<span class="drawer-arrow">→</span>
+      </a>
+      <a class="drawer-item" href="../index.html#depoimentos" onclick="closeDrawer()">
+        Depoimentos<span class="drawer-arrow">→</span>
+      </a>
+      <a class="drawer-item" href="../area-cliente.html" onclick="closeDrawer()">
+        Área do Cliente<span class="drawer-arrow">→</span>
+      </a>
+      <a class="drawer-item" href="../index.html#contato" onclick="closeDrawer()">
+        Contato<span class="drawer-arrow">→</span>
+      </a>
+    </div>
+    <div class="drawer-foot">
+      <a class="drawer-cta" href="../index.html#contato">Solicitar Orçamento</a>
+      <div class="drawer-socials">
+        <a href="https://instagram.com/opedrorafael_" target="_blank" rel="noopener" class="d-soc">Instagram</a>
+        <a href="https://www.behance.net/opedrorafael" target="_blank" rel="noopener" class="d-soc">Behance</a>
+        <a href="https://www.linkedin.com/in/pgwrafael" target="_blank" rel="noopener" class="d-soc">LinkedIn</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── HERO DA GALERIA ────────────────────────────── -->
+  <section class="gallery-hero">
+    <h1>Batizados <em>&amp; Sacramentos</em></h1>
+    <p>O primeiro encontro com o sagrado. Símbolos, velas, águas e olhares que marcam o início de uma vida de fé.</p>
+    <a href="../index.html#portfolio" class="back-link">← Voltar ao portfólio</a>
+  </section>
+
+  <!-- ── GRADE DE FOTOS ─────────────────────────────── -->
+  <main class="gallery-grid" id="gallery">
+
+    <figure class="gallery-item" data-lightbox="batizado">
+      <img
+        src="../assets/portfolio/batizado/foto-01.jpg"
+        alt="Derramamento da água — Batizado"
+        loading="lazy"
+        width="1200"
+        height="800"
+      />
+      <figcaption>Derramamento da água</figcaption>
+    </figure>
+
+    <figure class="gallery-item" data-lightbox="batizado">
+      <img
+        src="../assets/portfolio/batizado/foto-02.jpg"
+        alt="Vela batismal acesa — Batizado"
+        loading="lazy"
+        width="1200"
+        height="800"
+      />
+      <figcaption>Vela batismal</figcaption>
+    </figure>
+
+    <figure class="gallery-item" data-lightbox="batizado">
+      <img
+        src="../assets/portfolio/batizado/foto-03.jpg"
+        alt="Unção com o Santo Crisma — Batizado"
+        loading="lazy"
+        width="1200"
+        height="800"
+      />
+      <figcaption>Unção com o Santo Crisma</figcaption>
+    </figure>
+
+    <figure class="gallery-item" data-lightbox="batizado">
+      <img
+        src="../assets/portfolio/batizado/foto-04.jpg"
+        alt="Família junto à pia batismal — Batizado"
+        loading="lazy"
+        width="1200"
+        height="800"
+      />
+      <figcaption>Família junto à pia batismal</figcaption>
+    </figure>
+
+    <figure class="gallery-item" data-lightbox="batizado">
+      <img
+        src="../assets/portfolio/batizado/foto-05.jpg"
+        alt="Entrega da veste branca — Batizado"
+        loading="lazy"
+        width="1200"
+        height="800"
+      />
+      <figcaption>Entrega da veste branca</figcaption>
+    </figure>
+
+    <figure class="gallery-item" data-lightbox="batizado">
+      <img
+        src="../assets/portfolio/batizado/foto-06.jpg"
+        alt="Olhar do neófito — Batizado"
+        loading="lazy"
+        width="1200"
+        height="800"
+      />
+      <figcaption>Olhar do neófito</figcaption>
+    </figure>
+
+  </main>
+
+  <!-- ── LIGHTBOX ───────────────────────────────────── -->
+  <div class="lb-overlay" role="dialog" aria-modal="true" aria-label="Visualizador de imagem">
+    <div class="lb-inner">
+      <img class="lb-img" src="" alt="" />
+    </div>
+    <button class="lb-close" aria-label="Fechar">✕</button>
+    <button class="lb-prev" aria-label="Anterior">&#8249;</button>
+    <button class="lb-next" aria-label="Próxima">&#8250;</button>
+    <div class="lb-counter"></div>
+    <div class="lb-caption"></div>
+  </div>
+
+  <!-- ── FOOTER ─────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="f-brand">Imago Sacra</div>
+      <p class="f-copy">© 2025 Pedro Rafael · Fotografia Litúrgica Católica<br>Anápolis, Goiás · Brasil</p>
+      <div class="f-soc">
+        <a href="https://instagram.com/opedrorafael_" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.behance.net/opedrorafael" target="_blank" rel="noopener">Behance</a>
+        <a href="https://www.linkedin.com/in/pgwrafael" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="../area-cliente.html" style="color:var(--gold)">Área do Cliente</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/lightbox.js"></script>
+</body>
+</html>

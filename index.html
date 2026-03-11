@@ -486,6 +486,29 @@ section { overflow-x:clip; }
 .pf-pause-icon { font-size:12px; opacity:.5; cursor:pointer; transition:opacity .2s; }
 .pf-pause-icon:hover { opacity:1; }
 
+/* Gallery link */
+.pf-link-wrap { margin-top:28px; overflow:hidden; }
+.pf-gallery-link {
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:var(--mono); font-size:10px; letter-spacing:.24em; text-transform:uppercase;
+  color:var(--gold-lt);
+  text-decoration:none;
+  padding:10px 20px;
+  border:1px solid rgba(201,168,76,.35);
+  background:rgba(201,168,76,.06);
+  backdrop-filter:blur(8px);
+  border-radius:1px;
+  opacity:0; transform:translateY(12px);
+  transition:opacity .6s ease .48s, transform .6s cubic-bezier(.22,.68,0,1.1) .48s;
+}
+.pf-gallery-link.visible { opacity:1; transform:translateY(0); }
+.pf-gallery-link:hover {
+  background:rgba(201,168,76,.16);
+  border-color:rgba(201,168,76,.6);
+  color:#fff;
+  box-shadow:0 0 20px rgba(201,168,76,.2);
+}
+
 /* Animated gold border pulse on active slide */
 @keyframes border-pulse {
   0%,100% { opacity:.18; }
@@ -831,6 +854,11 @@ footer { background:var(--bg); transition:background .5s; border-top:1px solid v
       <div class="pf-desc-wrap">
         <p class="pf-desc" id="pfDesc"></p>
       </div>
+      <div class="pf-link-wrap">
+        <a href="#" class="pf-gallery-link" id="pfGalleryLink" aria-label="Ver galeria completa">
+          VER GALERIA COMPLETA →
+        </a>
+      </div>
     </div>
 
     <div class="pf-right">
@@ -1055,25 +1083,33 @@ const PF_SLIDES = [
     img:'https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=1600&q=85',
     icon:'✝', tag:'Serviço principal',
     title:'Ordenação', titleEm:'Presbiteral',
-    desc:'Imposição das mãos, unção, ladainha — cada etapa do rito irrepetível registrada com reverência e profundidade litúrgica.'
+    desc:'Imposição das mãos, unção, ladainha — cada etapa do rito irrepetível registrada com reverência e profundidade litúrgica.',
+    category:'ordenacao',
+    href:'portfolio/ordenacao.html'
   },
   {
     img:'https://images.unsplash.com/photo-1519741497674-611481863552?w=1600&q=85',
     icon:'💍', tag:'Sacramento',
     title:'Casamento', titleEm:'Religioso',
-    desc:'A missa nupcial como sacramento vivido com consciência. Silêncios, olhares e gestos que poucos percebem ao vivo.'
+    desc:'A missa nupcial como sacramento vivido com consciência. Silêncios, olhares e gestos que poucos percebem ao vivo.',
+    category:'casamento',
+    href:'portfolio/casamento.html'
   },
   {
     img:'https://images.unsplash.com/photo-1548625149-720094f87b16?w=1600&q=85',
     icon:'🕯️', tag:'Iniciação Cristã',
     title:'Batizados', titleEm:'& Sacramentos',
-    desc:'O primeiro encontro com o sagrado. Símbolos, velas, águas e olhares que marcam o início de uma vida de fé.'
+    desc:'O primeiro encontro com o sagrado. Símbolos, velas, águas e olhares que marcam o início de uma vida de fé.',
+    category:'batizados',
+    href:'portfolio/batizados.html'
   },
   {
     img:'https://images.unsplash.com/photo-1543968996-ee822b8176ba?w=1600&q=85',
     icon:'⛪', tag:'Vida Paroquial',
     title:'Festas', titleEm:'Litúrgicas',
-    desc:'Padroeiros, procissões, aniversários de ordenação — a vida cotidiana da Igreja também merece ser preservada.'
+    desc:'Padroeiros, procissões, aniversários de ordenação — a vida cotidiana da Igreja também merece ser preservada.',
+    category:'festas',
+    href:'portfolio/festas.html'
   }
 ];
 
@@ -1093,14 +1129,23 @@ const PF_SLIDES = [
   const curNum   = document.getElementById('pfCurNum');
   const totNum   = document.getElementById('pfTotNum');
   const pauseBtn = document.getElementById('pfPauseBtn');
+  const galleryLink = document.getElementById('pfGalleryLink');
 
   totNum.textContent = String(PF_SLIDES.length).padStart(2,'0');
 
-  // Build background slides
+  // Build background slides using <img> elements
   PF_SLIDES.forEach((s,i) => {
     const el = document.createElement('div');
     el.className = 'pf-bg-slide' + (i===0?' active':'');
-    el.style.backgroundImage = `url('${s.img}')`;
+    el.setAttribute('data-category', s.category);
+    const img = document.createElement('img');
+    img.src = s.img;
+    img.alt = s.title + ' ' + s.titleEm;
+    img.loading = i === 0 ? 'eager' : 'lazy';
+    img.width = 1600;
+    img.height = 1067;
+    img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;';
+    el.appendChild(img);
     bgWrap.appendChild(el);
   });
 
@@ -1120,6 +1165,7 @@ const PF_SLIDES = [
       orn.classList.remove('visible');
       desc.classList.remove('visible');
       badge.classList.remove('visible');
+      galleryLink.classList.remove('visible');
     }
 
     setTimeout(() => {
@@ -1128,12 +1174,15 @@ const PF_SLIDES = [
       badgeIco.textContent = s.icon;
       badgeTxt.textContent = s.tag;
       curNum.textContent   = String(pfCur+1).padStart(2,'0');
+      galleryLink.href = s.href;
+      galleryLink.setAttribute('aria-label', 'Ver galeria completa de ' + s.title + ' ' + s.titleEm);
       // Animate in
       requestAnimationFrame(() => {
         catLine.classList.add('visible');
         orn.classList.add('visible');
         desc.classList.add('visible');
         badge.classList.add('visible');
+        galleryLink.classList.add('visible');
       });
     }, animate ? 320 : 0);
   }

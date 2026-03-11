@@ -60,189 +60,14 @@
 </section>
 
 <!-- ── GALERIA ────────────────────────────────────────── -->
+<!--
+  CLOUDINARY — pré-requisito:
+  Para que o endpoint /image/list funcione, todos os assets desta galeria
+  precisam ter a tag "portfolio:ordenacao" aplicada no Cloudinary Console:
+  Media Library → selecionar todas as fotos → Add tag → portfolio:ordenacao
+-->
 <main class="gallery-grid" id="gallery">
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-01.jpg"
-      alt="Imposição das mãos — Ordenação Presbiteral"
-      loading="eager"
-      fetchpriority="high"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Imposição das mãos"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Imposição das mãos</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item portrait">
-    <img
-      src="../assets/portfolio/ordenacao/foto-02.jpg"
-      alt="Unção das mãos — Ordenação Presbiteral"
-      loading="lazy"
-      width="800"
-      height="1200"
-      data-lightbox="ordenacao"
-      data-caption="Unção das mãos"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Unção das mãos</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-03.jpg"
-      alt="Prostração — Ladainha dos Santos"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Prostração — Ladainha dos Santos"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Prostração — Ladainha dos Santos</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-04.jpg"
-      alt="Revestição das vestes sacerdotais"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Revestição das vestes sacerdotais"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Revestição das vestes sacerdotais</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item portrait">
-    <img
-      src="../assets/portfolio/ordenacao/foto-05.jpg"
-      alt="Primeiro abraço presbiteral"
-      loading="lazy"
-      width="800"
-      height="1200"
-      data-lightbox="ordenacao"
-      data-caption="Primeiro abraço presbiteral"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Primeiro abraço presbiteral</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-06.jpg"
-      alt="Primeira bênção ao povo"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Primeira bênção ao povo"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Primeira bênção ao povo</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-07.jpg"
-      alt="Promessa de obediência ao bispo"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Promessa de obediência ao bispo"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Promessa de obediência ao bispo</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-08.jpg"
-      alt="Concelebração eucarística"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Concelebração eucarística"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Concelebração eucarística</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item portrait">
-    <img
-      src="../assets/portfolio/ordenacao/foto-09.jpg"
-      alt="Detalhe — estola e manipulo"
-      loading="lazy"
-      width="800"
-      height="1200"
-      data-lightbox="ordenacao"
-      data-caption="Detalhe — estola e manipulo"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Detalhe — estola e manipulo</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-10.jpg"
-      alt="Momento de oração silenciosa"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Momento de oração silenciosa"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Momento de oração silenciosa</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-11.jpg"
-      alt="Família presente na ordenação"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Família presente na ordenação"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Família presente na ordenação</span>
-    </div>
-  </figure>
-
-  <figure class="gallery-item">
-    <img
-      src="../assets/portfolio/ordenacao/foto-12.jpg"
-      alt="Encerramento — processão de saída"
-      loading="lazy"
-      width="1200"
-      height="800"
-      data-lightbox="ordenacao"
-      data-caption="Encerramento — processão de saída"
-    />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">Encerramento — processão de saída</span>
-    </div>
-  </figure>
-
+  <!-- Itens renderizados dinamicamente via JavaScript (Cloudinary List API) -->
 </main>
 
 <!-- ── FOOTER ─────────────────────────────────────────── -->
@@ -300,19 +125,96 @@ hbEl.addEventListener('click', () =>
 );
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
 
-/* ── SCROLL REVEAL ───────────────────────────────────── */
-const io = new IntersectionObserver(entries => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('on'), i * 60);
-      io.unobserve(e.target);
+/* ── CLOUDINARY GALLERY ──────────────────────────────── */
+const CLOUD  = 'dsxsmrego';
+const TAG    = 'portfolio:ordenacao';
+const LIST_URL = `https://res.cloudinary.com/${CLOUD}/image/list/${TAG}.json`;
+
+function buildImageUrl(publicId) {
+  return `https://res.cloudinary.com/${CLOUD}/image/upload/w_1200,q_auto,f_auto/${publicId}`;
+}
+
+function createFigure(resource, index) {
+  const { public_id, context } = resource;
+  // Usa o campo context.caption se existir, caso contrário deriva do public_id
+  const caption = (context && context.custom && context.custom.caption)
+    ? context.custom.caption
+    : public_id.split('/').pop().replace(/[-_]/g, ' ');
+
+  const fig = document.createElement('figure');
+  fig.className = 'gallery-item';
+
+  const img = document.createElement('img');
+  img.src               = buildImageUrl(public_id);
+  img.alt               = `${caption} — Ordenação Presbiteral`;
+  img.loading           = index === 0 ? 'eager' : 'lazy';
+  img.width             = 1200;
+  img.height            = 800;
+  img.dataset.lightbox  = 'ordenacao';
+  img.dataset.caption   = caption;
+  if (index === 0) img.setAttribute('fetchpriority', 'high');
+
+  const overlay = document.createElement('div');
+  overlay.className = 'gallery-item-overlay';
+
+  const span = document.createElement('span');
+  span.className   = 'gallery-item-caption';
+  span.textContent = caption;
+
+  overlay.appendChild(span);
+  fig.appendChild(img);
+  fig.appendChild(overlay);
+  return fig;
+}
+
+function initScrollReveal(items) {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('on'), i * 60);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.06 });
+  items.forEach(el => { el.classList.add('reveal'); io.observe(el); });
+}
+
+async function loadGallery() {
+  const grid = document.getElementById('gallery');
+
+  try {
+    const res  = await fetch(LIST_URL);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+
+    const resources = data.resources || [];
+    if (resources.length === 0) {
+      grid.innerHTML = '<p class="gallery-empty">Nenhuma imagem encontrada. Verifique a tag no Cloudinary.</p>';
+      return;
     }
-  });
-}, { threshold:0.06 });
-document.querySelectorAll('.gallery-item').forEach(el => {
-  el.classList.add('reveal');
-  io.observe(el);
-});
+
+    const fragment = document.createDocumentFragment();
+    const figures  = resources.map((r, i) => {
+      const fig = createFigure(r, i);
+      fragment.appendChild(fig);
+      return fig;
+    });
+
+    grid.appendChild(fragment);
+
+    // Re-inicializa lightbox (definido em lightbox.js) após inserir os itens
+    if (typeof initLightbox === 'function') initLightbox();
+
+    // Re-inicializa scroll reveal
+    initScrollReveal(figures);
+
+  } catch (err) {
+    console.error('Cloudinary gallery load failed:', err);
+    grid.innerHTML = `<p class="gallery-empty">Erro ao carregar galeria. Tente novamente mais tarde.</p>`;
+  }
+}
+
+loadGallery();
 </script>
 <script src="../js/lightbox.js"></script>
 </body>

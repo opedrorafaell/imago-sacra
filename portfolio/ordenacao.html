@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ordenação Presbiteral — Imago Sacra</title>
+  <meta name="description" content="Galeria de fotografia litúrgica de Ordenação Presbiteral. Imposição das mãos, unção e ladainha — cada etapa do rito irrepetível registrada com reverência." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/gallery.css" />
+</head>
+<body>
+
+<!-- ── FIXED UI ──────────────────────────────────────── -->
+<button class="hamburger" id="hb" aria-label="Abrir menu">
+  <span></span><span></span><span></span>
+</button>
+
+<div class="nav-bar" id="navBar">
+  <a class="nav-logo" href="../index.html">Imago Sacra<small>Fotografia Litúrgica</small></a>
+</div>
+
+<a class="nav-cta" href="../index.html#contato">Solicitar Orçamento</a>
+
+<button class="theme-btn" id="themeBtn" aria-label="Alternar tema">
+  <span class="icon-sun">☀️</span><span class="icon-moon">🌙</span>
+</button>
+
+<!-- DRAWER -->
+<div class="overlay" id="overlay" onclick="closeDrawer()"></div>
+<nav class="drawer" id="drawer" aria-label="Menu principal">
+  <div class="drawer-head">
+    <div class="drawer-brand">Imago Sacra<small>Fotografia Litúrgica</small></div>
+    <button class="drawer-x" onclick="closeDrawer()" aria-label="Fechar">✕</button>
+  </div>
+  <div class="drawer-links">
+    <a class="drawer-item" href="../index.html#portfolio">Portfólio<span class="drawer-arrow">→</span></a>
+    <a class="drawer-item" href="../index.html#sobre">Sobre<span class="drawer-arrow">→</span></a>
+    <a class="drawer-item" href="../index.html#depoimentos">Depoimentos<span class="drawer-arrow">→</span></a>
+    <a class="drawer-item" href="../area-cliente.html">Área do Cliente<span class="drawer-arrow">→</span></a>
+    <a class="drawer-item" href="../index.html#contato">Contato<span class="drawer-arrow">→</span></a>
+  </div>
+  <div class="drawer-foot">
+    <a class="drawer-cta" href="../index.html#contato">Solicitar Orçamento</a>
+    <div class="drawer-socials">
+      <a href="https://instagram.com/opedrorafael_" target="_blank" rel="noopener" class="d-soc">Instagram</a>
+      <a href="https://www.behance.net/opedrorafael" target="_blank" rel="noopener" class="d-soc">Behance</a>
+      <a href="https://www.linkedin.com/in/pgwrafael" target="_blank" rel="noopener" class="d-soc">LinkedIn</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── GALLERY HERO ───────────────────────────────────── -->
+<section class="gallery-hero">
+  <div class="gallery-hero-eyebrow">Serviço Principal</div>
+  <h1>Ordenação <em>Presbiteral</em></h1>
+  <p>Imposição das mãos, unção, ladainha — cada etapa do rito irrepetível registrada com reverência e profundidade litúrgica.</p>
+  <a href="../index.html#portfolio" class="back-link">← Voltar ao portfólio</a>
+</section>
+
+<!-- ── GALERIA ────────────────────────────────────────── -->
+<main class="gallery-grid" id="gallery">
+
+  <figure class="gallery-item">
+    <img
+      src="../assets/portfolio/ordenacao/foto-01.jpg"
+      alt="Imposição das mãos — Ordenação Presbiteral"
+      loading="eager"
+      fetchpriority="high"
+      width="1200"
+      height="800"
+      data-lightbox="ordenacao"
+      data-caption="Imposição das mãos"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Imposição das mãos</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item portrait">
+    <img
+      src="../assets/portfolio/ordenacao/foto-02.jpg"
+      alt="Unção das mãos — Ordenação Presbiteral"
+      loading="lazy"
+      width="800"
+      height="1200"
+      data-lightbox="ordenacao"
+      data-caption="Unção das mãos"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Unção das mãos</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item">
+    <img
+      src="../assets/portfolio/ordenacao/foto-03.jpg"
+      alt="Prostração — Ladainha dos Santos"
+      loading="lazy"
+      width="1200"
+      height="800"
+      data-lightbox="ordenacao"
+      data-caption="Prostração — Ladainha dos Santos"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Prostração — Ladainha dos Santos</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item">
+    <img
+      src="../assets/portfolio/ordenacao/foto-04.jpg"
+      alt="Revestição das vestes sacerdotais"
+      loading="lazy"
+      width="1200"
+      height="800"
+      data-lightbox="ordenacao"
+      data-caption="Revestição das vestes sacerdotais"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Revestição das vestes sacerdotais</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item portrait">
+    <img
+      src="../assets/portfolio/ordenacao/foto-05.jpg"
+      alt="Primeiro abraço presbiteral"
+      loading="lazy"
+      width="800"
+      height="1200"
+      data-lightbox="ordenacao"
+      data-caption="Primeiro abraço presbiteral"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Primeiro abraço presbiteral</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item">
+    <img
+      src="../assets/portfolio/ordenacao/foto-06.jpg"
+      alt="Primeira bênção ao povo"
+      loading="lazy"
+      width="1200"
+      height="800"
+      data-lightbox="ordenacao"
+      data-caption="Primeira bênção ao povo"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Primeira bênção ao povo</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item">
+    <img
+      src="../assets/portfolio/ordenacao/foto-07.jpg"
+      alt="Promessa de obediência ao bispo"
+      loading="lazy"
+      width="1200"
+      height="800"
+      data-lightbox="ordenacao"
+      data-caption="Promessa de obediência ao bispo"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Promessa de obediência ao bispo</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item">
+    <img
+      src="../assets/portfolio/ordenacao/foto-08.jpg"
+      alt="Concelebração eucarística"
+      loading="lazy"
+      width="1200"
+      height="800"
+      data-lightbox="ordenacao"
+      data-caption="Concelebração eucarística"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Concelebração eucarística</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item portrait">
+    <img
+      src="../assets/portfolio/ordenacao/foto-09.jpg"
+      alt="Detalhe — estola e manipulo"
+      loading="lazy"
+      width="800"
+      height="1200"
+      data-lightbox="ordenacao"
+      data-caption="Detalhe — estola e manipulo"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Detalhe — estola e manipulo</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item">
+    <img
+      src="../assets/portfolio/ordenacao/foto-10.jpg"
+      alt="Momento de oração silenciosa"
+      loading="lazy"
+      width="1200"
+      height="800"
+      data-lightbox="ordenacao"
+      data-caption="Momento de oração silenciosa"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Momento de oração silenciosa</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item">
+    <img
+      src="../assets/portfolio/ordenacao/foto-11.jpg"
+      alt="Família presente na ordenação"
+      loading="lazy"
+      width="1200"
+      height="800"
+      data-lightbox="ordenacao"
+      data-caption="Família presente na ordenação"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Família presente na ordenação</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item">
+    <img
+      src="../assets/portfolio/ordenacao/foto-12.jpg"
+      alt="Encerramento — processão de saída"
+      loading="lazy"
+      width="1200"
+      height="800"
+      data-lightbox="ordenacao"
+      data-caption="Encerramento — processão de saída"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Encerramento — processão de saída</span>
+    </div>
+  </figure>
+
+</main>
+
+<!-- ── FOOTER ─────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div class="f-brand">Imago Sacra</div>
+    <p class="f-copy">© 2025 Pedro Rafael · Fotografia Litúrgica Católica<br>Anápolis, Goiás · Brasil</p>
+    <div class="f-soc">
+      <a href="https://instagram.com/opedrorafael_" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.behance.net/opedrorafael" target="_blank" rel="noopener">Behance</a>
+      <a href="https://www.linkedin.com/in/pgwrafael" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="../area-cliente.html" style="color:var(--gold)">Área do Cliente</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── TEMA ────────────────────────────────────────────── */
+const root  = document.documentElement;
+const pDark = window.matchMedia('(prefers-color-scheme:dark)').matches;
+let dark = localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : pDark;
+applyTheme(dark);
+document.getElementById('themeBtn').onclick = () => {
+  dark = !dark; applyTheme(dark);
+  localStorage.setItem('theme', dark ? 'dark' : 'light');
+};
+function applyTheme(d) { root.setAttribute('data-theme', d ? 'dark' : 'light'); }
+
+/* ── NAV SCROLL ──────────────────────────────────────── */
+const navBar = document.getElementById('navBar');
+const hbEl   = document.getElementById('hb');
+window.addEventListener('scroll', () => {
+  const past = window.scrollY > 60;
+  navBar.classList.toggle('scrolled', past);
+  hbEl.classList.toggle('on-light', past);
+}, { passive:true });
+
+/* ── DRAWER ──────────────────────────────────────────── */
+const drawer  = document.getElementById('drawer');
+const overlay = document.getElementById('overlay');
+function openDrawer() {
+  drawer.classList.add('open');
+  overlay.classList.add('open');
+  hbEl.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDrawer() {
+  drawer.classList.remove('open');
+  overlay.classList.remove('open');
+  hbEl.classList.remove('open');
+  document.body.style.overflow = '';
+}
+hbEl.addEventListener('click', () =>
+  drawer.classList.contains('open') ? closeDrawer() : openDrawer()
+);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+
+/* ── SCROLL REVEAL ───────────────────────────────────── */
+const io = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('on'), i * 60);
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold:0.06 });
+document.querySelectorAll('.gallery-item').forEach(el => {
+  el.classList.add('reveal');
+  io.observe(el);
+});
+</script>
+<script src="../js/lightbox.js"></script>
+</body>
+</html>

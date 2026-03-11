@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Batizados &amp; Sacramentos — Imago Sacra</title>
+  <meta name="description" content="Galeria de fotografia de Batizados e Sacramentos. O primeiro encontro com o sagrado — símbolos, velas, águas e olhares que marcam o início de uma vida de fé." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/gallery.css" />
+</head>
+<body>
+
+<!-- ── FIXED UI ──────────────────────────────────────── -->
+<button class="hamburger" id="hb" aria-label="Abrir menu">
+  <span></span><span></span><span></span>
+</button>
+
+<div class="nav-bar" id="navBar">
+  <a class="nav-logo" href="../index.html">Imago Sacra<small>Fotografia Litúrgica</small></a>
+</div>
+
+<a class="nav-cta" href="../index.html#contato">Solicitar Orçamento</a>
+
+<button class="theme-btn" id="themeBtn" aria-label="Alternar tema">
+  <span class="icon-sun">☀️</span><span class="icon-moon">🌙</span>
+</button>
+
+<!-- DRAWER -->
+<div class="overlay" id="overlay" onclick="closeDrawer()"></div>
+<nav class="drawer" id="drawer" aria-label="Menu principal">
+  <div class="drawer-head">
+    <div class="drawer-brand">Imago Sacra<small>Fotografia Litúrgica</small></div>
+    <button class="drawer-x" onclick="closeDrawer()" aria-label="Fechar">✕</button>
+  </div>
+  <div class="drawer-links">
+    <a class="drawer-item" href="../index.html#portfolio">Portfólio<span class="drawer-arrow">→</span></a>
+    <a class="drawer-item" href="../index.html#sobre">Sobre<span class="drawer-arrow">→</span></a>
+    <a class="drawer-item" href="../index.html#depoimentos">Depoimentos<span class="drawer-arrow">→</span></a>
+    <a class="drawer-item" href="../area-cliente.html">Área do Cliente<span class="drawer-arrow">→</span></a>
+    <a class="drawer-item" href="../index.html#contato">Contato<span class="drawer-arrow">→</span></a>
+  </div>
+  <div class="drawer-foot">
+    <a class="drawer-cta" href="../index.html#contato">Solicitar Orçamento</a>
+    <div class="drawer-socials">
+      <a href="https://instagram.com/opedrorafael_" target="_blank" rel="noopener" class="d-soc">Instagram</a>
+      <a href="https://www.behance.net/opedrorafael" target="_blank" rel="noopener" class="d-soc">Behance</a>
+      <a href="https://www.linkedin.com/in/pgwrafael" target="_blank" rel="noopener" class="d-soc">LinkedIn</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── GALLERY HERO ───────────────────────────────────── -->
+<section class="gallery-hero">
+  <div class="gallery-hero-eyebrow">Iniciação Cristã</div>
+  <h1>Batizados <em>&amp; Sacramentos</em></h1>
+  <p>O primeiro encontro com o sagrado. Símbolos, velas, águas e olhares que marcam o início de uma vida de fé.</p>
+  <a href="../index.html#portfolio" class="back-link">← Voltar ao portfólio</a>
+</section>
+
+<!-- ── GALERIA ────────────────────────────────────────── -->
+<main class="gallery-grid" id="gallery">
+
+  <figure class="gallery-item">
+    <img
+      src="../assets/portfolio/batizado/foto-01.jpg"
+      alt="Derramamento da água batismal"
+      loading="eager"
+      fetchpriority="high"
+      width="1200"
+      height="800"
+      data-lightbox="batizado"
+      data-caption="Derramamento da água batismal"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Derramamento da água batismal</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item portrait">
+    <img
+      src="../assets/portfolio/batizado/foto-02.jpg"
+      alt="Criança recebendo o Batismo"
+      loading="lazy"
+      width="800"
+      height="1200"
+      data-lightbox="batizado"
+      data-caption="Criança recebendo o Batismo"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Criança recebendo o Batismo</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item">
+    <img
+      src="../assets/portfolio/batizado/foto-03.jpg"
+      alt="Unção com o santo crisma"
+      loading="lazy"
+      width="1200"
+      height="800"
+      data-lightbox="batizado"
+      data-caption="Unção com o santo crisma"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Unção com o santo crisma</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item">
+    <img
+      src="../assets/portfolio/batizado/foto-04.jpg"
+      alt="Entrega da vela batismal"
+      loading="lazy"
+      width="1200"
+      height="800"
+      data-lightbox="batizado"
+      data-caption="Entrega da vela batismal"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Entrega da vela batismal</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item portrait">
+    <img
+      src="../assets/portfolio/batizado/foto-05.jpg"
+      alt="Família ao redor da pia batismal"
+      loading="lazy"
+      width="800"
+      height="1200"
+      data-lightbox="batizado"
+      data-caption="Família ao redor da pia batismal"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Família ao redor da pia batismal</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item">
+    <img
+      src="../assets/portfolio/batizado/foto-06.jpg"
+      alt="Detalhe — pia batismal e flores"
+      loading="lazy"
+      width="1200"
+      height="800"
+      data-lightbox="batizado"
+      data-caption="Detalhe — pia batismal e flores"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Detalhe — pia batismal e flores</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item">
+    <img
+      src="../assets/portfolio/batizado/foto-07.jpg"
+      alt="Primeira Comunhão — criança na comunhão"
+      loading="lazy"
+      width="1200"
+      height="800"
+      data-lightbox="batizado"
+      data-caption="Primeira Comunhão"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Primeira Comunhão</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item">
+    <img
+      src="../assets/portfolio/batizado/foto-08.jpg"
+      alt="Crisma — imposição das mãos"
+      loading="lazy"
+      width="1200"
+      height="800"
+      data-lightbox="batizado"
+      data-caption="Crisma — imposição das mãos"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Crisma — imposição das mãos</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item portrait">
+    <img
+      src="../assets/portfolio/batizado/foto-09.jpg"
+      alt="Alegria dos padrinhos"
+      loading="lazy"
+      width="800"
+      height="1200"
+      data-lightbox="batizado"
+      data-caption="Alegria dos padrinhos"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Alegria dos padrinhos</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item">
+    <img
+      src="../assets/portfolio/batizado/foto-10.jpg"
+      alt="Vela acesa — símbolo da fé"
+      loading="lazy"
+      width="1200"
+      height="800"
+      data-lightbox="batizado"
+      data-caption="Vela acesa — símbolo da fé"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Vela acesa — símbolo da fé</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item">
+    <img
+      src="../assets/portfolio/batizado/foto-11.jpg"
+      alt="Bênção ao final da celebração"
+      loading="lazy"
+      width="1200"
+      height="800"
+      data-lightbox="batizado"
+      data-caption="Bênção ao final da celebração"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Bênção ao final da celebração</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item">
+    <img
+      src="../assets/portfolio/batizado/foto-12.jpg"
+      alt="Memória do dia — foto de família"
+      loading="lazy"
+      width="1200"
+      height="800"
+      data-lightbox="batizado"
+      data-caption="Memória do dia — foto de família"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Memória do dia — foto de família</span>
+    </div>
+  </figure>
+
+</main>
+
+<!-- ── FOOTER ─────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div class="f-brand">Imago Sacra</div>
+    <p class="f-copy">© 2025 Pedro Rafael · Fotografia Litúrgica Católica<br>Anápolis, Goiás · Brasil</p>
+    <div class="f-soc">
+      <a href="https://instagram.com/opedrorafael_" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.behance.net/opedrorafael" target="_blank" rel="noopener">Behance</a>
+      <a href="https://www.linkedin.com/in/pgwrafael" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="../area-cliente.html" style="color:var(--gold)">Área do Cliente</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── TEMA ────────────────────────────────────────────── */
+const root  = document.documentElement;
+const pDark = window.matchMedia('(prefers-color-scheme:dark)').matches;
+let dark = localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : pDark;
+applyTheme(dark);
+document.getElementById('themeBtn').onclick = () => {
+  dark = !dark; applyTheme(dark);
+  localStorage.setItem('theme', dark ? 'dark' : 'light');
+};
+function applyTheme(d) { root.setAttribute('data-theme', d ? 'dark' : 'light'); }
+
+/* ── NAV SCROLL ──────────────────────────────────────── */
+const navBar = document.getElementById('navBar');
+const hbEl   = document.getElementById('hb');
+window.addEventListener('scroll', () => {
+  const past = window.scrollY > 60;
+  navBar.classList.toggle('scrolled', past);
+  hbEl.classList.toggle('on-light', past);
+}, { passive:true });
+
+/* ── DRAWER ──────────────────────────────────────────── */
+const drawer  = document.getElementById('drawer');
+const overlay = document.getElementById('overlay');
+function openDrawer() {
+  drawer.classList.add('open');
+  overlay.classList.add('open');
+  hbEl.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDrawer() {
+  drawer.classList.remove('open');
+  overlay.classList.remove('open');
+  hbEl.classList.remove('open');
+  document.body.style.overflow = '';
+}
+hbEl.addEventListener('click', () =>
+  drawer.classList.contains('open') ? closeDrawer() : openDrawer()
+);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+
+/* ── SCROLL REVEAL ───────────────────────────────────── */
+const io = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('on'), i * 60);
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold:0.06 });
+document.querySelectorAll('.gallery-item').forEach(el => {
+  el.classList.add('reveal');
+  io.observe(el);
+});
+</script>
+<script src="../js/lightbox.js"></script>
+</body>
+</html>

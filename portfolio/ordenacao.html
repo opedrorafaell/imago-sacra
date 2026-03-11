@@ -85,7 +85,7 @@
 </footer>
 
 <script>
-/* ── TEMA ────────────────────────────────────────────── */
+/* ── TEMA ─────────────────────────────────────────── */
 const root  = document.documentElement;
 const pDark = window.matchMedia('(prefers-color-scheme:dark)').matches;
 let dark = localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : pDark;
@@ -95,8 +95,7 @@ document.getElementById('themeBtn').onclick = () => {
   localStorage.setItem('theme', dark ? 'dark' : 'light');
 };
 function applyTheme(d) { root.setAttribute('data-theme', d ? 'dark' : 'light'); }
-
-/* ── NAV SCROLL ──────────────────────────────────────── */
+/* ── NAV SCROLL ──────────────────────────────────── */
 const navBar = document.getElementById('navBar');
 const hbEl   = document.getElementById('hb');
 window.addEventListener('scroll', () => {
@@ -104,117 +103,20 @@ window.addEventListener('scroll', () => {
   navBar.classList.toggle('scrolled', past);
   hbEl.classList.toggle('on-light', past);
 }, { passive:true });
-
-/* ── DRAWER ──────────────────────────────────────────── */
+/* ── DRAWER ──────────────────────────────────────── */
 const drawer  = document.getElementById('drawer');
 const overlay = document.getElementById('overlay');
-function openDrawer() {
-  drawer.classList.add('open');
-  overlay.classList.add('open');
-  hbEl.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeDrawer() {
-  drawer.classList.remove('open');
-  overlay.classList.remove('open');
-  hbEl.classList.remove('open');
-  document.body.style.overflow = '';
-}
-hbEl.addEventListener('click', () =>
-  drawer.classList.contains('open') ? closeDrawer() : openDrawer()
-);
+function openDrawer()  { drawer.classList.add('open'); overlay.classList.add('open'); hbEl.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeDrawer() { drawer.classList.remove('open'); overlay.classList.remove('open'); hbEl.classList.remove('open'); document.body.style.overflow = ''; }
+hbEl.addEventListener('click', () => drawer.classList.contains('open') ? closeDrawer() : openDrawer());
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
-
-/* ── CLOUDINARY GALLERY ──────────────────────────────── */
-const CLOUD  = 'dsxsmrego';
-const TAG    = 'portfolio:ordenacao';
-const LIST_URL = `https://res.cloudinary.com/${CLOUD}/image/list/${TAG}.json`;
-
-function buildImageUrl(publicId) {
-  return `https://res.cloudinary.com/${CLOUD}/image/upload/w_1200,q_auto,f_auto/${publicId}`;
-}
-
-function createFigure(resource, index) {
-  const { public_id, context } = resource;
-  // Usa o campo context.caption se existir, caso contrário deriva do public_id
-  const caption = (context && context.custom && context.custom.caption)
-    ? context.custom.caption
-    : public_id.split('/').pop().replace(/[-_]/g, ' ');
-
-  const fig = document.createElement('figure');
-  fig.className = 'gallery-item';
-
-  const img = document.createElement('img');
-  img.src               = buildImageUrl(public_id);
-  img.alt               = `${caption} — Ordenação Presbiteral`;
-  img.loading           = index === 0 ? 'eager' : 'lazy';
-  img.width             = 1200;
-  img.height            = 800;
-  img.dataset.lightbox  = 'ordenacao';
-  img.dataset.caption   = caption;
-  if (index === 0) img.setAttribute('fetchpriority', 'high');
-
-  const overlay = document.createElement('div');
-  overlay.className = 'gallery-item-overlay';
-
-  const span = document.createElement('span');
-  span.className   = 'gallery-item-caption';
-  span.textContent = caption;
-
-  overlay.appendChild(span);
-  fig.appendChild(img);
-  fig.appendChild(overlay);
-  return fig;
-}
-
-function initScrollReveal(items) {
-  const io = new IntersectionObserver(entries => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('on'), i * 60);
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.06 });
-  items.forEach(el => { el.classList.add('reveal'); io.observe(el); });
-}
-
-async function loadGallery() {
-  const grid = document.getElementById('gallery');
-
-  try {
-    const res  = await fetch(LIST_URL);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-
-    const resources = data.resources || [];
-    if (resources.length === 0) {
-      grid.innerHTML = '<p class="gallery-empty">Nenhuma imagem encontrada. Verifique a tag no Cloudinary.</p>';
-      return;
-    }
-
-    const fragment = document.createDocumentFragment();
-    const figures  = resources.map((r, i) => {
-      const fig = createFigure(r, i);
-      fragment.appendChild(fig);
-      return fig;
-    });
-
-    grid.appendChild(fragment);
-
-    // Re-inicializa lightbox (definido em lightbox.js) após inserir os itens
-    if (typeof initLightbox === 'function') initLightbox();
-
-    // Re-inicializa scroll reveal
-    initScrollReveal(figures);
-
-  } catch (err) {
-    console.error('Cloudinary gallery load failed:', err);
-    grid.innerHTML = `<p class="gallery-empty">Erro ao carregar galeria. Tente novamente mais tarde.</p>`;
-  }
-}
-
-loadGallery();
+/* ── SCROLL REVEAL ───────────────────────────────── */
+const io = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) { setTimeout(() => e.target.classList.add('on'), i * 60); io.unobserve(e.target); }
+  });
+}, { threshold: 0.06 });
+document.querySelectorAll('.gallery-item').forEach(el => { el.classList.add('reveal'); io.observe(el); });
 </script>
 <script src="../js/lightbox.js"></script>
 </body>

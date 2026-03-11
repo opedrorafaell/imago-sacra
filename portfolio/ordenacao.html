@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ordenação Presbiteral — Imago Sacra</title>
-  <meta name="description" content="Galeria de fotografia litúrgica de Ordenação Presbiteral. Imposição das mãos, unção e ladainha — cada etapa do rito irrepetível registrada com reverência." />
+  <meta name="description" content="Galeria de fotografia litúrgica de Ordenação Presbiteral. Imposição das mãos, unção e ladainha — cada etapa do rito irrepível registrada com reverência." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css" />
@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<!-- ── FIXED UI ──────────────────────────────────────── -->
+<!-- ── FIXED UI ────────────────────────────────────────────── -->
 <button class="hamburger" id="hb" aria-label="Abrir menu">
   <span></span><span></span><span></span>
 </button>
@@ -51,17 +51,16 @@
   </div>
 </nav>
 
-<!-- ── GALLERY HERO ───────────────────────────────────── -->
+<!-- ── GALLERY HERO ────────────────────────────────────────────── -->
 <section class="gallery-hero">
   <div class="gallery-hero-eyebrow">Serviço Principal</div>
   <h1>Ordenação <em>Presbiteral</em></h1>
-  <p>Imposição das mãos, unção, ladainha — cada etapa do rito irrepetível registrada com reverência e profundidade litúrgica.</p>
+  <p>Imposição das mãos, unção, ladainha — cada etapa do rito irrepível registrada com reverência e profundidade litúrgica.</p>
   <a href="../index.html#portfolio" class="back-link">← Voltar ao portfólio</a>
 </section>
 
-<!-- ── GALERIA ────────────────────────────────────────── -->
-<!--
-  CLOUDINARY — pré-requisito:
+<!-- ── GALERIA ──────────────────────────────────────────────── -->
+<!-- CLOUDINARY — pré-requisito:
   Para que o endpoint /image/list funcione, todos os assets desta galeria
   precisam ter a tag "portfolio:ordenacao" aplicada no Cloudinary Console:
   Media Library → selecionar todas as fotos → Add tag → portfolio:ordenacao
@@ -70,7 +69,7 @@
   <!-- Itens renderizados dinamicamente via JavaScript (Cloudinary List API) -->
 </main>
 
-<!-- ── FOOTER ─────────────────────────────────────────── -->
+<!-- ── FOOTER ──────────────────────────────────────────────── -->
 <footer>
   <div class="footer-inner">
     <div class="f-brand">Imago Sacra</div>
@@ -84,9 +83,12 @@
   </div>
 </footer>
 
+<!-- ── SCRIPTS (lightbox.js ANTES do inline) ─────────────────── -->
+<script src="../js/lightbox.js"></script>
+
 <script>
-/* ── TEMA ────────────────────────────────────────────── */
-const root  = document.documentElement;
+/* ── TEMA ──────────────────────────────────────────────── */
+const root = document.documentElement;
 const pDark = window.matchMedia('(prefers-color-scheme:dark)').matches;
 let dark = localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : pDark;
 applyTheme(dark);
@@ -96,17 +98,17 @@ document.getElementById('themeBtn').onclick = () => {
 };
 function applyTheme(d) { root.setAttribute('data-theme', d ? 'dark' : 'light'); }
 
-/* ── NAV SCROLL ──────────────────────────────────────── */
+/* ── NAV SCROLL ──────────────────────────────────────────────── */
 const navBar = document.getElementById('navBar');
-const hbEl   = document.getElementById('hb');
+const hbEl = document.getElementById('hb');
 window.addEventListener('scroll', () => {
   const past = window.scrollY > 60;
   navBar.classList.toggle('scrolled', past);
   hbEl.classList.toggle('on-light', past);
 }, { passive:true });
 
-/* ── DRAWER ──────────────────────────────────────────── */
-const drawer  = document.getElementById('drawer');
+/* ── DRAWER ──────────────────────────────────────────────── */
+const drawer = document.getElementById('drawer');
 const overlay = document.getElementById('overlay');
 function openDrawer() {
   drawer.classList.add('open');
@@ -125,9 +127,9 @@ hbEl.addEventListener('click', () =>
 );
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
 
-/* ── CLOUDINARY GALLERY ──────────────────────────────── */
-const CLOUD  = 'dsxsmrego';
-const TAG    = 'portfolio:ordenacao';
+/* ── CLOUDINARY GALLERY ──────────────────────────────────────────── */
+const CLOUD = 'dsxsmrego';
+const TAG = 'portfolio:ordenacao';
 const LIST_URL = `https://res.cloudinary.com/${CLOUD}/image/list/${TAG}.json`;
 
 function buildImageUrl(publicId) {
@@ -136,7 +138,6 @@ function buildImageUrl(publicId) {
 
 function createFigure(resource, index) {
   const { public_id, context } = resource;
-  // Usa o campo context.caption se existir, caso contrário deriva do public_id
   const caption = (context && context.custom && context.custom.caption)
     ? context.custom.caption
     : public_id.split('/').pop().replace(/[-_]/g, ' ');
@@ -145,23 +146,21 @@ function createFigure(resource, index) {
   fig.className = 'gallery-item';
 
   const img = document.createElement('img');
-  img.src               = buildImageUrl(public_id);
-  img.alt               = `${caption} — Ordenação Presbiteral`;
-  img.loading           = index === 0 ? 'eager' : 'lazy';
-  img.width             = 1200;
-  img.height            = 800;
-  img.dataset.lightbox  = 'ordenacao';
-  img.dataset.caption   = caption;
+  img.src = buildImageUrl(public_id);
+  img.alt = `${caption} — Ordenação Presbiteral`;
+  img.loading = index === 0 ? 'eager' : 'lazy';
+  // REMOVIDO: img.width e img.height fixos para permitir proporção real
+  img.dataset.lightbox = 'ordenacao';
+  img.dataset.caption = caption;
   if (index === 0) img.setAttribute('fetchpriority', 'high');
 
   const overlay = document.createElement('div');
   overlay.className = 'gallery-item-overlay';
-
   const span = document.createElement('span');
-  span.className   = 'gallery-item-caption';
+  span.className = 'gallery-item-caption';
   span.textContent = caption;
-
   overlay.appendChild(span);
+
   fig.appendChild(img);
   fig.appendChild(overlay);
   return fig;
@@ -181,25 +180,21 @@ function initScrollReveal(items) {
 
 async function loadGallery() {
   const grid = document.getElementById('gallery');
-
   try {
-    const res  = await fetch(LIST_URL);
+    const res = await fetch(LIST_URL);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
-
     const resources = data.resources || [];
     if (resources.length === 0) {
       grid.innerHTML = '<p class="gallery-empty">Nenhuma imagem encontrada. Verifique a tag no Cloudinary.</p>';
       return;
     }
-
     const fragment = document.createDocumentFragment();
-    const figures  = resources.map((r, i) => {
+    const figures = resources.map((r, i) => {
       const fig = createFigure(r, i);
       fragment.appendChild(fig);
       return fig;
     });
-
     grid.appendChild(fragment);
 
     // Re-inicializa lightbox (definido em lightbox.js) após inserir os itens
@@ -207,15 +202,13 @@ async function loadGallery() {
 
     // Re-inicializa scroll reveal
     initScrollReveal(figures);
-
   } catch (err) {
     console.error('Cloudinary gallery load failed:', err);
     grid.innerHTML = `<p class="gallery-empty">Erro ao carregar galeria. Tente novamente mais tarde.</p>`;
   }
 }
-
 loadGallery();
 </script>
-<script src="../js/lightbox.js"></script>
+
 </body>
 </html>

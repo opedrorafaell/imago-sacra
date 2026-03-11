@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Área do Cliente — Imago Sacra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#0f1510; --surface:#162018; --surface2:#1d2b20;
+  --text:#f0ede4; --text-mid:#c8d4c0; --text-low:#7a9478;
+  --gold:#c9a84c; --gold-lt:#e0c070; --line:#243328;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Jost',sans-serif; --mono:'DM Mono',monospace;
+  --ease:cubic-bezier(.25,.46,.45,.94);
+  --radius:6px;
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { height:100%; scroll-behavior:smooth; }
+body {
+  background:var(--bg); color:var(--text);
+  font-family:var(--sans); font-weight:300;
+  min-height:100svh; overflow-x:clip;
+}
+a { color:inherit; text-decoration:none; }
+button { cursor:pointer; border:none; font:inherit; }
+img { display:block; }
+
+/* ── TOPO ─────────────────────────────── */
+.topbar {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  height:60px; background:rgba(15,21,16,.92);
+  backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 40px;
+}
+.top-logo {
+  font-family:var(--serif); font-size:16px; font-weight:400;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--text);
+  cursor:pointer;
+}
+.top-logo small {
+  display:block; font-family:var(--mono); font-size:8px;
+  letter-spacing:.22em; color:var(--gold); margin-top:-2px;
+}
+.top-back {
+  font-family:var(--mono); font-size:10px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--text-low);
+  display:flex; align-items:center; gap:8px;
+  transition:color .2s; background:none;
+}
+.top-back:hover { color:var(--gold); }
+.top-back svg { width:14px; height:14px; }
+
+/* ── TELA DE LOGIN ────────────────────── */
+#loginScreen {
+  min-height:100svh;
+  display:flex; align-items:center; justify-content:center;
+  padding:80px 24px 40px;
+  position:relative; overflow:hidden;
+}
+/* fundo com gradiente sutil */
+#loginScreen::before {
+  content:'';
+  position:absolute; inset:0;
+  background:radial-gradient(ellipse at 50% 40%, rgba(201,168,76,.07) 0%, transparent 65%);
+  pointer-events:none;
+}
+.login-box {
+  position:relative; z-index:1;
+  width:100%; max-width:400px;
+  display:flex; flex-direction:column; align-items:center;
+  text-align:center;
+}
+.login-cross {
+  font-size:20px; color:var(--gold); opacity:.5;
+  margin-bottom:32px; letter-spacing:.3em;
+}
+.login-title {
+  font-family:var(--serif); font-size:clamp(34px,5vw,52px);
+  font-weight:300; line-height:1.05; margin-bottom:10px;
+}
+.login-title em { font-style:italic; color:var(--gold); }
+.login-sub {
+  font-family:var(--mono); font-size:10px; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--text-low);
+  margin-bottom:48px;
+}
+.login-rule {
+  width:40px; height:1px;
+  background:linear-gradient(to right, transparent, var(--gold), transparent);
+  margin:0 auto 48px;
+}
+
+/* campo de código */
+.code-label {
+  font-family:var(--mono); font-size:10px; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--text-low);
+  margin-bottom:12px; display:block; text-align:left; width:100%;
+}
+.code-wrap {
+  width:100%; position:relative; margin-bottom:8px;
+}
+.code-input {
+  width:100%; background:var(--surface);
+  border:1px solid var(--line); border-radius:var(--radius);
+  padding:18px 52px 18px 20px;
+  font-family:var(--mono); font-size:22px; font-weight:400;
+  letter-spacing:.3em; text-transform:uppercase; text-align:center;
+  color:var(--text); outline:none;
+  transition:border-color .25s, box-shadow .25s;
+  caret-color:var(--gold);
+}
+.code-input:focus {
+  border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(201,168,76,.12);
+}
+.code-input::placeholder {
+  color:var(--text-low); letter-spacing:.15em; font-size:16px;
+}
+/* olho / mostrar código */
+.code-eye {
+  position:absolute; right:16px; top:50%; transform:translateY(-50%);
+  color:var(--text-low); background:none; transition:color .2s;
+  display:flex; align-items:center;
+}
+.code-eye:hover { color:var(--gold); }
+
+.code-hint {
+  font-family:var(--mono); font-size:10px; letter-spacing:.1em;
+  color:var(--text-low); margin-bottom:28px; text-align:left;
+  min-height:16px; transition:color .2s;
+}
+.code-hint.error { color:#e07070; }
+
+.btn-enter {
+  width:100%; padding:16px;
+  background:var(--gold); color:var(--bg);
+  font-family:var(--mono); font-size:11px;
+  letter-spacing:.18em; text-transform:uppercase;
+  border-radius:var(--radius); border:none;
+  transition:background .2s, transform .15s, box-shadow .2s;
+  box-shadow:0 8px 28px rgba(201,168,76,.28);
+  position:relative; overflow:hidden;
+}
+.btn-enter::before {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.15) 50%,transparent 70%);
+  transform:translateX(-100%); transition:transform .5s var(--ease);
+}
+.btn-enter:hover::before { transform:translateX(100%); }
+.btn-enter:hover { background:var(--gold-lt); transform:translateY(-1px); box-shadow:0 12px 36px rgba(201,168,76,.38); }
+.btn-enter:active { transform:translateY(0); }
+.btn-enter.loading { pointer-events:none; opacity:.7; }
+
+.login-footer {
+  margin-top:48px;
+  font-family:var(--mono); font-size:10px; letter-spacing:.12em;
+  color:var(--text-low); line-height:1.8;
+}
+.login-footer a { color:var(--gold); transition:opacity .2s; }
+.login-footer a:hover { opacity:.7; }
+
+/* ── ÁREA DA GALERIA ──────────────────── */
+#galleryScreen {
+  display:none;
+  padding-top:60px;
+  min-height:100svh;
+}
+
+/* cabeçalho da galeria */
+.gal-header {
+  padding:44px 60px 32px;
+  border-bottom:1px solid var(--line);
+  display:flex; align-items:flex-end; justify-content:space-between;
+  gap:24px; flex-wrap:wrap;
+  position:relative;
+}
+/* linha dourada no topo do header */
+.gal-header::before {
+  content:'';
+  position:absolute; top:0; left:60px; right:60px; height:1px;
+  background:linear-gradient(to right, var(--gold), transparent);
+  opacity:.4;
+}
+.gal-event {
+  font-family:var(--mono); font-size:10px; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--gold); margin-bottom:8px;
+  display:flex; align-items:center; gap:10px;
+}
+.gal-event::before { content:''; width:18px; height:1px; background:var(--gold); }
+.gal-title {
+  font-family:var(--serif); font-size:clamp(28px,4vw,52px);
+  font-weight:300; line-height:1.05;
+}
+.gal-title em { font-style:italic; color:var(--gold); }
+.gal-meta {
+  font-family:var(--mono); font-size:10px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--text-low); margin-top:10px;
+  display:flex; align-items:center; gap:14px;
+}
+.gal-meta span { color:var(--text-mid); }
+.gal-meta-dot { opacity:.3; }
+
+.gal-actions {
+  display:flex; gap:10px; align-items:center; flex-shrink:0;
+}
+.btn-dl-all {
+  font-family:var(--mono); font-size:10px; letter-spacing:.14em;
+  text-transform:uppercase; padding:12px 24px;
+  background:var(--gold); color:var(--bg);
+  border-radius:var(--radius); border:none;
+  transition:background .2s, transform .15s; display:flex; align-items:center; gap:8px;
+  box-shadow:0 4px 20px rgba(201,168,76,.25);
+}
+.btn-dl-all:hover { background:var(--gold-lt); transform:translateY(-1px); }
+.btn-dl-all svg { width:14px; height:14px; }
+.btn-logout {
+  font-family:var(--mono); font-size:10px; letter-spacing:.14em;
+  text-transform:uppercase; padding:12px 18px;
+  background:transparent; color:var(--text-low);
+  border:1px solid var(--line); border-radius:var(--radius);
+  transition:all .2s;
+}
+.btn-logout:hover { border-color:rgba(255,255,255,.25); color:var(--text); }
+
+/* grade de fotos */
+.gal-grid {
+  padding:32px 60px 80px;
+  columns:3 260px; gap:10px;
+}
+.gal-item {
+  break-inside:avoid; margin-bottom:10px;
+  border-radius:3px; overflow:hidden;
+  position:relative; cursor:pointer;
+  background:var(--surface);
+  /* sombra sutil para dar profundidade */
+  box-shadow:0 2px 12px rgba(0,0,0,.35);
+  transition:box-shadow .3s var(--ease), transform .3s var(--ease);
+}
+.gal-item:hover {
+  box-shadow:0 8px 32px rgba(0,0,0,.6);
+  transform:translateY(-2px);
+}
+.gal-item img {
+  width:100%; height:auto; display:block;
+  transition:transform .6s var(--ease), filter .4s;
+  filter:brightness(.92) saturate(.95);
+}
+.gal-item:hover img { transform:scale(1.04); filter:brightness(1.02) saturate(1.05); }
+
+/* overlay de hover no card */
+.gal-item-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.75) 0%, rgba(0,0,0,.1) 50%, transparent 100%);
+  opacity:0; transition:opacity .35s;
+  display:flex; align-items:flex-end; padding:14px;
+  justify-content:space-between;
+}
+.gal-item:hover .gal-item-overlay { opacity:1; }
+.gal-item-num {
+  font-family:var(--mono); font-size:10px; letter-spacing:.1em;
+  color:rgba(255,255,255,.6);
+}
+.btn-dl-single {
+  width:32px; height:32px; border-radius:50%;
+  background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.3);
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; backdrop-filter:blur(6px);
+  transition:background .2s, border-color .2s;
+}
+.btn-dl-single:hover { background:var(--gold); border-color:var(--gold); }
+.btn-dl-single svg { width:14px; height:14px; }
+
+/* ── LIGHTBOX ─────────────────────────── */
+#lightbox {
+  display:none; position:fixed; inset:0; z-index:500;
+  background:rgba(0,0,0,.95);
+  align-items:center; justify-content:center;
+  flex-direction:column;
+}
+#lightbox.open { display:flex; }
+.lb-img-wrap {
+  position:relative; max-width:92vw; max-height:82svh;
+  display:flex; align-items:center; justify-content:center;
+}
+.lb-img-wrap img {
+  max-width:92vw; max-height:82svh;
+  object-fit:contain; border-radius:3px;
+  box-shadow:0 24px 80px rgba(0,0,0,.7);
+}
+.lb-nav {
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:44px; height:44px; border-radius:50%;
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18);
+  display:flex; align-items:center; justify-content:center;
+  font-size:20px; color:rgba(255,255,255,.7);
+  cursor:pointer; transition:all .2s; backdrop-filter:blur(6px);
+}
+.lb-nav:hover { background:rgba(201,168,76,.25); border-color:var(--gold); color:#fff; }
+.lb-nav.prev { left:-60px; }
+.lb-nav.next { right:-60px; }
+.lb-toolbar {
+  margin-top:20px; display:flex; align-items:center; gap:20px;
+}
+.lb-counter {
+  font-family:var(--mono); font-size:11px; letter-spacing:.15em;
+  color:rgba(255,255,255,.4);
+}
+.lb-close {
+  position:absolute; top:20px; right:24px;
+  font-family:var(--mono); font-size:11px; letter-spacing:.14em;
+  text-transform:uppercase; color:rgba(255,255,255,.4);
+  cursor:pointer; transition:color .2s; background:none;
+  display:flex; align-items:center; gap:8px;
+}
+.lb-close:hover { color:#fff; }
+.lb-dl {
+  font-family:var(--mono); font-size:10px; letter-spacing:.14em;
+  text-transform:uppercase; padding:9px 18px;
+  background:var(--gold); color:var(--bg);
+  border-radius:var(--radius); border:none;
+  transition:background .2s; display:flex; align-items:center; gap:8px;
+}
+.lb-dl:hover { background:var(--gold-lt); }
+.lb-dl svg { width:13px; height:13px; }
+
+/* ── ESTADOS VAZIOS / LOADING ─────────── */
+.state-loading {
+  padding:100px 0;
+  display:flex; flex-direction:column; align-items:center; gap:20px;
+  color:var(--text-low);
+}
+.spinner {
+  width:32px; height:32px; border-radius:50%;
+  border:2px solid var(--line);
+  border-top-color:var(--gold);
+  animation:spin .8s linear infinite;
+}
+@keyframes spin { to { transform:rotate(360deg); } }
+
+/* ── TOAST ────────────────────────────── */
+.toast {
+  position:fixed; bottom:28px; left:50%; transform:translateX(-50%) translateY(20px);
+  z-index:600; background:var(--surface);
+  border:1px solid var(--line); border-radius:var(--radius);
+  padding:12px 20px;
+  font-family:var(--mono); font-size:11px; letter-spacing:.1em;
+  color:var(--text-mid); white-space:nowrap;
+  opacity:0; transition:opacity .3s, transform .3s;
+  pointer-events:none;
+}
+.toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+/* ── ANIMAÇÕES ────────────────────────── */
+@keyframes fadeIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
+.fade-in { animation:fadeIn .5s var(--ease) forwards; }
+
+/* ── RESPONSIVE ───────────────────────── */
+@media(max-width:768px) {
+  .topbar { padding:0 20px; }
+  .gal-header { padding:32px 24px 24px; flex-direction:column; align-items:flex-start; }
+  .gal-grid { padding:20px 24px 48px; columns:2 140px; }
+  .lb-nav.prev { left:-14px; }
+  .lb-nav.next { right:-14px; }
+  .lb-nav { width:36px; height:36px; font-size:16px; }
+}
+@media(max-width:480px) {
+  .gal-grid { columns:2 120px; gap:8px; }
+  .gal-item { margin-bottom:8px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── BARRA TOPO ──────────────────────────────────── -->
+<div class="topbar">
+  <div class="top-logo" onclick="goHome()">Imago Sacra<small>Área do Cliente</small></div>
+  <button class="top-back" onclick="goHome()">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M10 3L5 8l5 5"/>
+    </svg>
+    Voltar ao site
+  </button>
+</div>
+
+<!-- ── TELA DE LOGIN ───────────────────────────────── -->
+<div id="loginScreen">
+  <div class="login-box">
+    <div class="login-cross">✦</div>
+    <h1 class="login-title">Sua <em>galeria</em><br>particular</h1>
+    <p class="login-sub">Acesso exclusivo · Imago Sacra</p>
+    <div class="login-rule"></div>
+
+    <label class="code-label">Código de acesso</label>
+    <div class="code-wrap">
+      <input
+        type="password"
+        id="codeInput"
+        class="code-input"
+        placeholder="· · · · · ·"
+        maxlength="10"
+        autocomplete="off"
+        spellcheck="false"
+        onkeydown="if(event.key==='Enter') tryLogin()"
+        oninput="clearError()"
+      >
+      <button class="code-eye" id="eyeBtn" onclick="toggleEye()" tabindex="-1" title="Mostrar / ocultar">
+        <svg id="eyeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+      </button>
+    </div>
+    <p class="code-hint" id="codeHint">Insira o código enviado pelo fotógrafo. &nbsp;<span style="color:var(--gold);opacity:.55">Demo: 00000</span></p>
+
+    <button class="btn-enter" id="btnEnter" onclick="tryLogin()">Acessar galeria</button>
+
+    <p class="login-footer">
+      Não tem seu código?<br>
+      <a href="https://instagram.com/opedrorafael_" target="_blank">Entre em contato com Pedro Rafael</a>
+    </p>
+  </div>
+</div>
+
+<!-- ── TELA DA GALERIA ─────────────────────────────── -->
+<div id="galleryScreen">
+  <div class="gal-header">
+    <div>
+      <div class="gal-event" id="galEvent">—</div>
+      <h2 class="gal-title" id="galTitle">—</h2>
+      <p class="gal-meta" id="galMeta">—</p>
+    </div>
+    <div class="gal-actions">
+      <button class="btn-dl-all" onclick="downloadAll()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Baixar todas
+      </button>
+      <button class="btn-logout" onclick="logout()">Sair</button>
+    </div>
+  </div>
+  <div class="gal-grid" id="galGrid">
+    <div class="state-loading">
+      <div class="spinner"></div>
+      <span>Carregando galeria…</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── LIGHTBOX ────────────────────────────────────── -->
+<div id="lightbox" onclick="closeLb(event)">
+  <button class="lb-close" onclick="closeLightbox()">
+    <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8">
+      <path d="M1 1l12 12M13 1L1 13"/>
+    </svg>
+    Fechar
+  </button>
+  <div class="lb-img-wrap">
+    <button class="lb-nav prev" onclick="lbNav(-1);event.stopPropagation()">&#8249;</button>
+    <img id="lbImg" src="" alt="">
+    <button class="lb-nav next" onclick="lbNav(1);event.stopPropagation()" >&#8250;</button>
+  </div>
+  <div class="lb-toolbar">
+    <span class="lb-counter" id="lbCounter">1 / 1</span>
+    <button class="lb-dl" onclick="downloadSingle(lbCurrent);event.stopPropagation()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      Baixar esta foto
+    </button>
+  </div>
+</div>
+
+<!-- ── TOAST ───────────────────────────────────────── -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ════════════════════════════════════════════════════
+// BASE DE DADOS DE GALERIAS
+// Estrutura: código → dados da galeria + fotos
+//
+// COMO ADICIONAR UM CLIENTE NO FUTURO:
+// 1. Adicione um objeto no GALLERIES abaixo
+// 2. A chave é o código de acesso (case-insensitive)
+// 3. As fotos podem ser URLs do Cloudinary, Google Drive,
+//    S3, Backblaze ou qualquer CDN público
+// ════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════
+// GALERIAS DEMO — fallback quando admin ainda não
+// cadastrou nenhuma galeria no painel
+// ════════════════════════════════════════════════════
+const DEMO_GALLERIES = {
+  "00000": {
+    event: "Ordenação Presbiteral",
+    title: "Pe. Matheus Alves<br><em>de Souza</em>",
+    sub: "Catedral de Sant'Ana · Anápolis, GO",
+    date: "14 jun. 2025",
+    photos: [
+      "https://images.unsplash.com/photo-1548199569-3e1c6aa8f469?w=1200&q=85",
+      "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=1200&q=85",
+      "https://images.unsplash.com/photo-1548625149-720094f87b16?w=1200&q=85",
+      "https://images.unsplash.com/photo-1543968996-ee822b8176ba?w=1200&q=85",
+      "https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=85",
+      "https://images.unsplash.com/photo-1511285605577-4d62fb50d2f7?w=1200&q=85",
+      "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=1200&q=85",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=85",
+      "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=85",
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=85",
+      "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=1200&q=85",
+      "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=1200&q=85",
+      "https://images.unsplash.com/photo-1445445290350-18a3b86e0b5a?w=1200&q=85",
+      "https://images.unsplash.com/photo-1504439468489-c8920d796a29?w=1200&q=85",
+      "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=1200&q=85",
+      "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=1200&q=85",
+      "https://images.unsplash.com/photo-1512100356356-de1b84283e18?w=1200&q=85",
+      "https://images.unsplash.com/photo-1520052203542-a3dcf45d7e2d?w=1200&q=85",
+      "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?w=1200&q=85",
+      "https://images.unsplash.com/photo-1551009175-15bdf9dcb580?w=1200&q=85",
+      "https://images.unsplash.com/photo-1533000971552-6a962ff0b9f9?w=1200&q=85",
+      "https://images.unsplash.com/photo-1519052537078-e6302a4968d4?w=1200&q=85",
+      "https://images.unsplash.com/photo-1476234251651-f353703a034d?w=1200&q=85",
+    ]
+  }
+};
+
+// ════════════════════════════════════════════════════
+// CARREGA GALERIAS — lê do admin (localStorage) e
+// faz merge com as demos. Galerias do admin têm
+// prioridade; demos servem de fallback.
+// ════════════════════════════════════════════════════
+function buildGalleries() {
+  const map = { ...DEMO_GALLERIES };
+  try {
+    const raw = localStorage.getItem('imgsc_galleries');
+    if (raw) {
+      const adminList = JSON.parse(raw);
+      if (Array.isArray(adminList)) {
+        adminList.forEach(g => {
+          if (g.code && g.status === 'active') {
+            const code = g.code.trim().toUpperCase();
+            map[code] = {
+              event:  g.event  || '',
+              // suporta tanto campo name quanto event para o título exibido
+              title:  g.name   || g.event || '',
+              sub:    g.sub    || '',
+              date:   g.date   || '',
+              cover:  g.cover  || '',
+              photos: Array.isArray(g.photos) ? g.photos : []
+            };
+          }
+        });
+      }
+    }
+  } catch(e) {
+    console.warn('Imago Sacra: erro ao ler galerias do admin.', e);
+  }
+  return map;
+}
+
+const GALLERIES = buildGalleries();
+
+// ════════════════════════════════════════════════════
+// ESTADO
+// ════════════════════════════════════════════════════
+let currentGallery = null;
+let lbCurrent = 0;
+
+// ── TEMA ─────────────────────────────────────────────
+const savedTheme = localStorage.getItem('theme') || 'dark';
+// área do cliente sempre em dark — tema litúrgico fixo
+
+// ── NAVEGAÇÃO ─────────────────────────────────────────
+function goHome() {
+  // tenta voltar; se não tiver histórico, vai para index
+  if (document.referrer && document.referrer.includes(location.hostname)) {
+    history.back();
+  } else {
+    window.location.href = 'index.html';
+  }
+}
+
+// ── LOGIN ─────────────────────────────────────────────
+function tryLogin() {
+  const raw   = document.getElementById('codeInput').value;
+  // remove espaços, caracteres invisíveis e normaliza
+  const code  = raw.trim().replace(/\s+/g, '').toUpperCase();
+  const btn   = document.getElementById('btnEnter');
+  const hint  = document.getElementById('codeHint');
+
+  if (!code) {
+    showError('Insira o código de acesso.');
+    document.getElementById('codeInput').focus();
+    return;
+  }
+
+  btn.classList.add('loading');
+  btn.textContent = 'Verificando…';
+
+  setTimeout(() => {
+    const gallery = GALLERIES[code];
+    if (gallery) {
+      currentGallery = gallery;
+      sessionStorage.setItem('imgsc_auth', code);
+      openGallery(gallery);
+    } else {
+      btn.classList.remove('loading');
+      btn.textContent = 'Acessar galeria';
+      showError(`Código "${code}" não encontrado. Tente novamente.`);
+      document.getElementById('codeInput').select();
+    }
+  }, 600);
+}
+
+function clearError() {
+  const h = document.getElementById('codeHint');
+  h.innerHTML = 'Insira o código enviado pelo fotógrafo. &nbsp;<span style="color:var(--gold);opacity:.55">Demo: 00000</span>';
+  h.classList.remove('error');
+  document.getElementById('codeInput').style.borderColor = '';
+}
+function showError(msg) {
+  const h = document.getElementById('codeHint');
+  h.textContent = msg;
+  h.classList.add('error');
+  // shake no input
+  const inp = document.getElementById('codeInput');
+  inp.style.borderColor = '#e07070';
+  setTimeout(() => { inp.style.borderColor = ''; }, 1200);
+}
+
+// olho
+let eyeOpen = false;
+function toggleEye() {
+  eyeOpen = !eyeOpen;
+  const inp = document.getElementById('codeInput');
+  const ico = document.getElementById('eyeIcon');
+  inp.type = eyeOpen ? 'text' : 'password';
+  ico.style.opacity = eyeOpen ? '1' : '.55';
+}
+
+// ── ABRE GALERIA ──────────────────────────────────────
+function openGallery(g) {
+  document.getElementById('loginScreen').style.display  = 'none';
+  document.getElementById('galleryScreen').style.display = 'block';
+
+  document.getElementById('galEvent').textContent = g.event;
+  document.getElementById('galTitle').innerHTML   = g.title;
+  document.getElementById('galMeta').innerHTML    =
+    `<span>${g.date}</span><span class="gal-meta-dot">·</span><span>${g.sub}</span><span class="gal-meta-dot">·</span><span style="color:var(--gold)">${g.photos.length} fotografias</span>`;
+
+  renderGrid(g.photos);
+}
+
+function renderGrid(photos) {
+  const grid = document.getElementById('galGrid');
+  grid.innerHTML = '';
+
+  photos.forEach((url, i) => {
+    const item = document.createElement('div');
+    item.className = 'gal-item fade-in';
+    item.style.animationDelay = (i * 40) + 'ms';
+
+    item.innerHTML = `
+      <img src="${url}" alt="Foto ${i+1}" loading="lazy">
+      <div class="gal-item-overlay">
+        <span class="gal-item-num">${String(i+1).padStart(2,'0')}</span>
+        <button class="btn-dl-single" onclick="downloadSingle(${i});event.stopPropagation()" title="Baixar foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+        </button>
+      </div>
+    `;
+    item.addEventListener('click', () => openLightbox(i));
+    grid.appendChild(item);
+  });
+}
+
+// ── DOWNLOAD ──────────────────────────────────────────
+async function downloadSingle(index) {
+  const url = currentGallery.photos[index];
+  showToast('Preparando download…');
+  try {
+    const resp = await fetch(url);
+    const blob = await resp.blob();
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `imago-sacra-${String(index+1).padStart(3,'0')}.jpg`;
+    a.click();
+    URL.revokeObjectURL(a.href);
+    showToast('Download iniciado ✓');
+  } catch {
+    // fallback: abre em nova aba se CORS bloquear
+    window.open(url, '_blank');
+    showToast('Abrindo foto em nova aba');
+  }
+}
+
+async function downloadAll() {
+  showToast(`Iniciando download de ${currentGallery.photos.length} fotos…`);
+  // Download sequencial com pequeno delay para não sobrecarregar
+  for (let i = 0; i < currentGallery.photos.length; i++) {
+    await new Promise(r => setTimeout(r, 300));
+    await downloadSingle(i);
+  }
+}
+
+// ── LIGHTBOX ──────────────────────────────────────────
+function openLightbox(index) {
+  lbCurrent = index;
+  updateLb();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeLb(e) {
+  if (e.target === document.getElementById('lightbox')) closeLightbox();
+}
+function lbNav(dir) {
+  const total = currentGallery.photos.length;
+  lbCurrent = (lbCurrent + dir + total) % total;
+  updateLb();
+}
+function updateLb() {
+  const img = document.getElementById('lbImg');
+  const total = currentGallery.photos.length;
+  img.style.opacity = '0';
+  img.src = currentGallery.photos[lbCurrent];
+  img.onload = () => { img.style.transition = 'opacity .3s'; img.style.opacity = '1'; };
+  document.getElementById('lbCounter').textContent =
+    `${lbCurrent + 1} / ${total}`;
+}
+document.addEventListener('keydown', e => {
+  const lb = document.getElementById('lightbox');
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'ArrowRight') lbNav(1);
+  if (e.key === 'ArrowLeft')  lbNav(-1);
+  if (e.key === 'Escape')     closeLightbox();
+});
+
+// ── LOGOUT ────────────────────────────────────────────
+function logout() {
+  sessionStorage.removeItem('imgsc_auth');
+  currentGallery = null;
+  document.getElementById('galleryScreen').style.display = 'none';
+  document.getElementById('loginScreen').style.display  = 'flex';
+  document.getElementById('codeInput').value = '';
+  clearError();
+  document.getElementById('btnEnter').textContent = 'Acessar galeria';
+}
+
+// ── TOAST ─────────────────────────────────────────────
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+// ── AUTO-LOGIN (sessão ativa) ──────────────────────────
+const saved = sessionStorage.getItem('imgsc_auth');
+if (saved) {
+  const savedCode = saved.trim().toUpperCase();
+  if (GALLERIES[savedCode]) {
+    currentGallery = GALLERIES[savedCode];
+    openGallery(currentGallery);
+  }
+}
+</script>
+</body>
+</html>

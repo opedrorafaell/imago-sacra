@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Casamento Religioso — Imago Sacra</title>
+  <meta name="description" content="Galeria de fotografia de Casamento Religioso. A missa nupcial como sacramento vivido com consciência — silêncios, olhares e gestos que poucos percebem ao vivo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/gallery.css" />
+</head>
+<body>
+
+<!-- ── FIXED UI ──────────────────────────────────────── -->
+<button class="hamburger" id="hb" aria-label="Abrir menu">
+  <span></span><span></span><span></span>
+</button>
+
+<div class="nav-bar" id="navBar">
+  <a class="nav-logo" href="../index.html">Imago Sacra<small>Fotografia Litúrgica</small></a>
+</div>
+
+<a class="nav-cta" href="../index.html#contato">Solicitar Orçamento</a>
+
+<button class="theme-btn" id="themeBtn" aria-label="Alternar tema">
+  <span class="icon-sun">☀️</span><span class="icon-moon">🌙</span>
+</button>
+
+<!-- DRAWER -->
+<div class="overlay" id="overlay" onclick="closeDrawer()"></div>
+<nav class="drawer" id="drawer" aria-label="Menu principal">
+  <div class="drawer-head">
+    <div class="drawer-brand">Imago Sacra<small>Fotografia Litúrgica</small></div>
+    <button class="drawer-x" onclick="closeDrawer()" aria-label="Fechar">✕</button>
+  </div>
+  <div class="drawer-links">
+    <a class="drawer-item" href="../index.html#portfolio">Portfólio<span class="drawer-arrow">→</span></a>
+    <a class="drawer-item" href="../index.html#sobre">Sobre<span class="drawer-arrow">→</span></a>
+    <a class="drawer-item" href="../index.html#depoimentos">Depoimentos<span class="drawer-arrow">→</span></a>
+    <a class="drawer-item" href="../area-cliente.html">Área do Cliente<span class="drawer-arrow">→</span></a>
+    <a class="drawer-item" href="../index.html#contato">Contato<span class="drawer-arrow">→</span></a>
+  </div>
+  <div class="drawer-foot">
+    <a class="drawer-cta" href="../index.html#contato">Solicitar Orçamento</a>
+    <div class="drawer-socials">
+      <a href="https://instagram.com/opedrorafael_" target="_blank" rel="noopener" class="d-soc">Instagram</a>
+      <a href="https://www.behance.net/opedrorafael" target="_blank" rel="noopener" class="d-soc">Behance</a>
+      <a href="https://www.linkedin.com/in/pgwrafael" target="_blank" rel="noopener" class="d-soc">LinkedIn</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── GALLERY HERO ───────────────────────────────────── -->
+<section class="gallery-hero">
+  <div class="gallery-hero-eyebrow">Sacramento</div>
+  <h1>Casamento <em>Religioso</em></h1>
+  <p>A missa nupcial como sacramento vivido com consciência. Silêncios, olhares e gestos que poucos percebem ao vivo.</p>
+  <a href="../index.html#portfolio" class="back-link">← Voltar ao portfólio</a>
+</section>
+
+<!-- ── GALERIA ────────────────────────────────────────── -->
+<main class="gallery-grid" id="gallery">
+
+  <figure class="gallery-item">
+    <img
+      src="../assets/portfolio/casamento/foto-01.jpg"
+      alt="Entrada da noiva — Casamento Religioso"
+      loading="eager"
+      width="1200"
+      height="800"
+      data-lightbox="casamento"
+      data-caption="Entrada da noiva"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Entrada da noiva</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item portrait">
+    <img
+      src="../assets/portfolio/casamento/foto-02.jpg"
+      alt="Troca de alianças — Casamento Religioso"
+      loading="lazy"
+      width="800"
+      height="1200"
+      data-lightbox="casamento"
+      data-caption="Troca de alianças"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Troca de alianças</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item">
+    <img
+      src="../assets/portfolio/casamento/foto-03.jpg"
+      alt="Consentimento matrimonial — Casamento Religioso"
+      loading="lazy"
+      width="1200"
+      height="800"
+      data-lightbox="casamento"
+      data-caption="Consentimento matrimonial"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Consentimento matrimonial</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item">
+    <img
+      src="../assets/portfolio/casamento/foto-04.jpg"
+      alt="Benção nupcial"
+      loading="lazy"
+      width="1200"
+      height="800"
+      data-lightbox="casamento"
+      data-caption="Benção nupcial"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Benção nupcial</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item portrait">
+    <img
+      src="../assets/portfolio/casamento/foto-05.jpg"
+      alt="Primeiro olhar — Casamento Religioso"
+      loading="lazy"
+      width="800"
+      height="1200"
+      data-lightbox="casamento"
+      data-caption="Primeiro olhar"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Primeiro olhar</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item">
+    <img
+      src="../assets/portfolio/casamento/foto-06.jpg"
+      alt="Comunhão dos noivos"
+      loading="lazy"
+      width="1200"
+      height="800"
+      data-lightbox="casamento"
+      data-caption="Comunhão dos noivos"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Comunhão dos noivos</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item">
+    <img
+      src="../assets/portfolio/casamento/foto-07.jpg"
+      alt="Detalhe — buquê e altar"
+      loading="lazy"
+      width="1200"
+      height="800"
+      data-lightbox="casamento"
+      data-caption="Detalhe — buquê e altar"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Detalhe — buquê e altar</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item">
+    <img
+      src="../assets/portfolio/casamento/foto-08.jpg"
+      alt="Saída dos noivos pela nave"
+      loading="lazy"
+      width="1200"
+      height="800"
+      data-lightbox="casamento"
+      data-caption="Saída dos noivos pela nave"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Saída dos noivos pela nave</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item portrait">
+    <img
+      src="../assets/portfolio/casamento/foto-09.jpg"
+      alt="Emoção dos familiares"
+      loading="lazy"
+      width="800"
+      height="1200"
+      data-lightbox="casamento"
+      data-caption="Emoção dos familiares"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Emoção dos familiares</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item">
+    <img
+      src="../assets/portfolio/casamento/foto-10.jpg"
+      alt="Decoração litúrgica — flores e velas"
+      loading="lazy"
+      width="1200"
+      height="800"
+      data-lightbox="casamento"
+      data-caption="Decoração litúrgica — flores e velas"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Decoração litúrgica — flores e velas</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item">
+    <img
+      src="../assets/portfolio/casamento/foto-11.jpg"
+      alt="Momento íntimo após a cerimônia"
+      loading="lazy"
+      width="1200"
+      height="800"
+      data-lightbox="casamento"
+      data-caption="Momento íntimo após a cerimônia"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Momento íntimo após a cerimônia</span>
+    </div>
+  </figure>
+
+  <figure class="gallery-item">
+    <img
+      src="../assets/portfolio/casamento/foto-12.jpg"
+      alt="Vista geral da nave — cerimônia"
+      loading="lazy"
+      width="1200"
+      height="800"
+      data-lightbox="casamento"
+      data-caption="Vista geral da nave"
+    />
+    <div class="gallery-item-overlay">
+      <span class="gallery-item-caption">Vista geral da nave</span>
+    </div>
+  </figure>
+
+</main>
+
+<!-- ── FOOTER ─────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div class="f-brand">Imago Sacra</div>
+    <p class="f-copy">© 2025 Pedro Rafael · Fotografia Litúrgica Católica<br>Anápolis, Goiás · Brasil</p>
+    <div class="f-soc">
+      <a href="https://instagram.com/opedrorafael_" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.behance.net/opedrorafael" target="_blank" rel="noopener">Behance</a>
+      <a href="https://www.linkedin.com/in/pgwrafael" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="../area-cliente.html" style="color:var(--gold)">Área do Cliente</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── TEMA ────────────────────────────────────────────── */
+const root  = document.documentElement;
+const pDark = window.matchMedia('(prefers-color-scheme:dark)').matches;
+let dark = localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : pDark;
+applyTheme(dark);
+document.getElementById('themeBtn').onclick = () => {
+  dark = !dark; applyTheme(dark);
+  localStorage.setItem('theme', dark ? 'dark' : 'light');
+};
+function applyTheme(d) { root.setAttribute('data-theme', d ? 'dark' : 'light'); }
+
+/* ── NAV SCROLL ──────────────────────────────────────── */
+const navBar = document.getElementById('navBar');
+const hbEl   = document.getElementById('hb');
+window.addEventListener('scroll', () => {
+  const past = window.scrollY > 60;
+  navBar.classList.toggle('scrolled', past);
+  hbEl.classList.toggle('on-light', past);
+}, { passive:true });
+
+/* ── DRAWER ──────────────────────────────────────────── */
+const drawer  = document.getElementById('drawer');
+const overlay = document.getElementById('overlay');
+function openDrawer() {
+  drawer.classList.add('open');
+  overlay.classList.add('open');
+  hbEl.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDrawer() {
+  drawer.classList.remove('open');
+  overlay.classList.remove('open');
+  hbEl.classList.remove('open');
+  document.body.style.overflow = '';
+}
+hbEl.addEventListener('click', () =>
+  drawer.classList.contains('open') ? closeDrawer() : openDrawer()
+);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+
+/* ── SCROLL REVEAL ───────────────────────────────────── */
+const io = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('on'), i * 60);
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold:0.06 });
+document.querySelectorAll('.gallery-item').forEach(el => {
+  el.classList.add('reveal');
+  io.observe(el);
+});
+</script>
+<script src="../js/lightbox.js"></script>
+</body>
+</html>
